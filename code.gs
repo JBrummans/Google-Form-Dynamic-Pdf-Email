@@ -74,7 +74,7 @@ var TEMPLATE_TITLE = ""; // Eg, "New Form Submission" - if blank by default this
 var EMAIL_SUBJECT = ""; // Eg, "New Form Submission" - if blank by default this will be 'New ' + TEMPLATE_TITLE + ' submission'
 
 // Comma separated list of email recipients
-var PDF_EMAIL_RECIPIENTS = "name@yourcompany.com.au"; // Eg, "name@yourcompany.com.au, name2@yourcompany.com.au"
+var PDF_EMAIL_RECIPIENTS = "name@yourcompany.com.au"; // Eg: "name@yourcompany.com.au, name2@yourcompany.com.au"
 
 // This HAS to be set otherwise the ID generation will not work. Using URL rather than ID as had issues with the ID not working on certain forms.
 var FORM_URL = ""; // Eg, "https://docs.google.com/forms/d/1nkI-u4ENTthkTgKD_wC2wWHuek6GZp7bzDd-BWR2eoc/edit"
@@ -88,8 +88,12 @@ var SEND_EMAIL_TO_SUBMITTER = false;
 //Should an ID be auto generated for each response?
 var AUTO_GENERATE_ID = false;
 
-//What Should the ID field be called? (if required)
+//What should the ID field be called? (if required)
 var SUBMISSION_ID_FIELD_NAME = "Submission ID";
+
+//What should the prefix be for the ID? (if required) 
+//The prefix will appear before the ID number. Eg: using "ID" as the prefix will result in an ID like "ID205".
+var SUBMISSION_ID_PREFIX = "";
 
 //Does the Form Require a signature section?
 var SIGNATURE_REQUIRED = false;
@@ -117,13 +121,21 @@ function onFormSubmit(e) {
 	
   var form = FormApp.openByUrl(FORM_URL);
 
-
   if (AUTO_GENERATE_ID === true){
+    // Using difference in months since Jan 2020 as an always increasing number to create the ID. By combining with the response number, even if the responses where reset it would be near impossible to overlap numbers once a month has passed.
+    //May need to add a check for existing IDs just incase.
+    var Month = monthDiff(new Date(2020, 01), new Date());
+
+    
     //Get response number for creating ID
     var responseNum = form.getResponses().length;
+    //Ensure the response number is at least 2 digits.
+    if (responseNum < 10){ 
+      responseNum = "0" + responseNum;
+    }
 
-    var subId = responseNum + "" + sheet.getLastRow();
-    var subIndex = firstRowValues.indexOf(SUBMISSION_ID_FIELD_NAME) //Returns -1 if not found.
+    var subId = SUBMISSION_ID_PREFIX + "" + responseNum;
+    var subIndex = firstRowValues.indexOf(SUBMISSION_ID_FIELD_NAME); //Returns -1 if not found.
     if ( subIndex === -1) {
         sheet.insertColumns(1, 1);
         sheet.getRange(1, 1).setValues([[SUBMISSION_ID_FIELD_NAME]]);
@@ -135,7 +147,6 @@ function onFormSubmit(e) {
   }
   
   //Build html for email
-
   var table = "";
   for (var i = 0; i < firstRowValues.length; i++) {
     var currentKey = firstRowValues[i];
@@ -219,3 +230,9 @@ function onFormSubmit(e) {
 
   htmlFile.setTrashed(true);
 }
+
+//Function to get difference in months from a certain date. Eg: from Jan 2020 to May 2020 will return 3 as there is a 3 month gap between the two months.
+function monthDiff(dateFrom, dateTo) {
+  return dateTo.getMonth() - dateFrom.getMonth() + 
+    (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
+ }
