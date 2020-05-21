@@ -18,6 +18,7 @@ Before running this Google Script, the below must be completed
 * A Google Sheet linked to a Form which is logging responses
 * The script code copied to the Script Editor of the Google Sheet
 * Variables adjusted within the script code. Eg, recipients email, Form ID etc
+* Update Base64 logo
 * A trigger created on the script to run on form submission
 
 ### Running the script
