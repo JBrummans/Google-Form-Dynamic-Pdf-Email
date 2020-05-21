@@ -76,8 +76,8 @@ var EMAIL_SUBJECT = ""; // Eg, "New Form Submission" - if blank by default this 
 // Comma separated list of email recipients
 var PDF_EMAIL_RECIPIENTS = "name@yourcompany.com.au"; // Eg, "name@yourcompany.com.au, name2@yourcompany.com.au"
 
-// This HAS to be set otherwise you won't have a good time.
-var FORM_ID = ""; // Eg, '1fClp4IKb4WqxBzMqPGK4pPPhhKBEfClp4IBzMqIQIKbYA';
+// This HAS to be set otherwise the ID generation will not work. Using URL rather than ID as had issues with the ID not working on certain forms.
+var FORM_URL = ""; // Eg, "https://docs.google.com/forms/d/1nkI-u4ENTthkTgKD_wC2wWHuek6GZp7bzDd-BWR2eoc/edit"
 
 // Should we include answers with blank responses in the pdf and email body?
 var SKIP_BLANK_ANSWERS = false;
@@ -92,7 +92,7 @@ var AUTO_GENERATE_ID = false;
 var SUBMISSION_ID_FIELD_NAME = "Submission ID";
 
 //Does the Form Require a signature section?
-var SIGNATURE_REQUIRED = true;
+var SIGNATURE_REQUIRED = false;
 
 function onFormSubmit(e) {
   var values = e.namedValues; //content of the submission
@@ -114,8 +114,8 @@ function onFormSubmit(e) {
   var firstRowValues = sheet
     .getRange(1, 1, 1, sheet.getLastColumn())
     .getValues()[0];
-
-  var form = FormApp.openById(FORM_ID);
+	
+  var form = FormApp.openByUrl(FORM_URL);
 
 
   if (AUTO_GENERATE_ID === true){
