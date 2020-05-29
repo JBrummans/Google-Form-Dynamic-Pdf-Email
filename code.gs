@@ -134,7 +134,8 @@ function onFormSubmit(e) {
       responseNum = "0" + responseNum;
     }
 
-    var subId = SUBMISSION_ID_PREFIX + "" + responseNum;
+    //Submission ID = prefix (if set) + Month difference from Jan 2020 + submission response number
+    var subId = SUBMISSION_ID_PREFIX + "" + Month + "" + responseNum;
     var subIndex = firstRowValues.indexOf(SUBMISSION_ID_FIELD_NAME); //Returns -1 if not found.
     if ( subIndex === -1) {
         sheet.insertColumns(1, 1);
