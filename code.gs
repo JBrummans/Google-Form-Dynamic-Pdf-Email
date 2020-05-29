@@ -234,6 +234,5 @@ function onFormSubmit(e) {
 
 //Function to get difference in months from a certain date. Eg: from Jan 2020 to May 2020 will return 3 as there is a 3 month gap between the two months.
 function monthDiff(dateFrom, dateTo) {
-  return dateTo.getMonth() - dateFrom.getMonth() + 
-    (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
+  return dateTo.getMonth() - dateFrom.getMonth() + (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
  }
