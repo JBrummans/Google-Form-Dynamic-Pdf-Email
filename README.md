@@ -1,4 +1,4 @@
-# Google Form Dynamic PDF Creation and Mail-out
+# Google Form Dynamic PDF Creation and Email
 
 This Google script creates a PDF based on a Google form response, attaches to an email and emails listed recipients. In addition it also inserts an ID column into the responses spreadsheet and generates a unique ID for reach response. The script has been designed to be as dynamic as possible allowing it to be quickly copied for use in other projets.
 
