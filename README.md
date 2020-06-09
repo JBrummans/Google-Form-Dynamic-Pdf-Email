@@ -37,7 +37,7 @@ E.g if you wanted to log a variable to check its contents, you can add the line 
 
 * Google Script uses a form of JavaScript.
 * Google Scripts do not execute in a consistent and reliable time frame. Some executions can take several seconds while others happen within a second or two. Keep this in mind when considering race conditions.
-* The unique ID created by the script for each response is a combination of a prefix (if set), number of months since Jan 2020 and the Form response number. This prevents possible collisions in the event that a row is deleted. As well as if the reponses are cleared from the spreadsheet (as long as at least one month has past). However does cause the ID numbering to not be sequential.
+* The unique ID created by the script for each response is a combination of a prefix (if set), number of months since Jan 2020 and the Form response number. This prevents possible collisions in the event that a row from the spreadsheet is deleted, as well as if the reponses are cleared from the Form (as long as at least one month has past). However does cause the ID numbering to not be sequential.
 * As stated above in [Quick Start](#quick-start), the trigger should be created using a generic account not a personal one. As the email is sent with the details of the person who created the trigger. If you have created a trigger with a personal account and wish to change this, delete the old trigger and recreate it from the generic account.
 
 ## Authors
