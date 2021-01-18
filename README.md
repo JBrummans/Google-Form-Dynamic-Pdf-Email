@@ -4,7 +4,7 @@ This Google script creates a PDF based on a Google form response, attaches to an
 
 ## Quick Start
 
-This script must be added to a Google Sheets document, which itself is linked to a Google Form. To get started, open a Google Sheet and then open the script editor. Copy and pase the code into the script editor and save. Create a trigger ```onFormSubmit``` for the function. The trigger should be created with a generic account as this is the account used to authorise and send the email as. Update variables in the script as required. A Google Form ID is required for unique ID generation. Email recipients must be updated as well.
+This script must be added to a Google Sheets document, which itself is linked to a Google Form. To get started, open a Google Sheet and then open the script editor. Copy and paste the code into the script editor and save. Create a trigger ```onFormSubmit``` for the function. The trigger should be created with a generic account as this is the account used to authorise and send the email as. Update variables in the script as required. A Google Form ID is required for unique ID generation. Email recipients must be updated as well.
 
 Test the code by completing a form submission. Check the execution log in the Google Script Editor for details.
 
