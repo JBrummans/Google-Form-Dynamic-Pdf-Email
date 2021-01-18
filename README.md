@@ -23,7 +23,7 @@ Before running this Google Script, the below must be completed
 
 ### Running the script
 
-Once the setup has been completed. Simply submit a form to test. If successful, an email with a PDF attached will be sent to the listed recipients in the script.
+Once the setup has been completed, simply submit a form to test. If successful, an email with a PDF attached will be sent to the listed recipients in the script.
 
 ### Troubleshooting
 
