@@ -1,6 +1,6 @@
 # Google Form Dynamic PDF Creation and Email
 
-This Google script creates a PDF based on a Google form response, attaches to an email and emails listed recipients. In addition it also inserts an ID column into the responses spreadsheet and generates a unique ID for reach response. The script has been designed to be as dynamic as possible allowing it to be quickly copied for use in other projets.
+This Google script creates a PDF based on a Google form response, attaches to an email and emails listed recipients. In addition it also inserts an ID column into the responses spreadsheet and generates a unique ID for each response. The script has been designed to be as dynamic as possible allowing it to be quickly copied for use in other projects.
 
 ## Quick Start
 
@@ -12,7 +12,7 @@ Test the code by completing a form submission. Check the execution log in the Go
 
 ### Setup
 
-Before running this Google Script, the below must be completed
+Before running this Google Script, the below must be completed:
 
 * A Google Form
 * A Google Sheet linked to a Form which is logging responses
