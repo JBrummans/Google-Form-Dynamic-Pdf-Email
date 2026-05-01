@@ -29,9 +29,9 @@ Once the setup has been completed, simply submit a form to test. If successful, 
 
 If encountering issues when running the script you can check the execution log. From the Script Editor, select ***Executions*** from the menu on the left. Each execution of the script will be logged showing timestamps and any errors encountered.
 
-For additional troubleshooting, you can use the `console.log()` function in the Google Script. 
+For additional troubleshooting, you can use the `Logger.log()` function in the Google Script. 
 
-E.g if you wanted to log a variable to check its contents, you can add the line `console.log("The variable contents are:" + variableName)` then execute the script by submitting a form. Check the ***Execution*** page. Expanding the execution will provide any output from `console.log()` functions.
+E.g if you wanted to log a variable to check its contents, you can add the line `Logger.log("The variable contents are:" + variableName)` then execute the script by submitting a form. Check the ***Execution*** page. Expanding the execution will provide any output from `Logger.log()` functions.
 
 ## Notes / Good to know
 
